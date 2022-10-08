@@ -11,7 +11,9 @@ def get_sweats_info():
          my_cur.execute("select COLOR_OR_STYLE from ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE")
          return my_cur.fetchall()
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_data_rows = get_sweats_info()
+my_catalog = get_sweats_info()
 my_cnx.close()
 
-color_list = streamlit.dataframe(my_data_rows).values.tolist()
+#create dropdown list
+df = pandas.dataframe(my_catalog)
+color_list = df[0].values.tolist()
