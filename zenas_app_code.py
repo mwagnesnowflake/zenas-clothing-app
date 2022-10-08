@@ -15,5 +15,5 @@ my_catalog = get_sweats_info()
 my_cnx.close()
 
 #create dropdown list
-df = pandas.dataframe(my_catalog)
+df = pandas.DataFrame(my_catalog)
 color_list = df[0].values.tolist()
