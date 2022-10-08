@@ -19,9 +19,8 @@ option = streamlit.selectbox('Pick a sweatsuit color or style:', list(color_list
 #add caption
 product_caption = 'Our warm, comfortable, '+ option +' sweatsuit!'
 
-streamlit.stop()
 #use the option to retrieve additional data from snowflake
-my_cur.execute("select DIRECT_URL, PRICE, SIZE_LIST, UPSELL_PRODUCT_DESC FROM ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE WHERE COLOR_OR_STYLE = "'+ option +'";")
+my_cur.execute("select DIRECT_URL, PRICE, SIZE_LIST, UPSELL_PRODUCT_DESC FROM ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE WHERE COLOR_OR_STYLE = '"+ option +"';")
 df2 = my_cur.fetchone()
 streamlit.write(df2)
 
