@@ -17,3 +17,7 @@ my_cnx.close()
 #create dropdown list
 df = pandas.DataFrame(my_catalog)
 color_list = df[0].values.tolist()
+option = streamlit.selectbox('Pick a sweatsuit color or style:', list(color_list))
+
+#add caption
+product_caption = 'Our warm, comfortable, '+ option +' sweatsuit!
