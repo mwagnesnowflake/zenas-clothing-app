@@ -13,4 +13,5 @@ def get_sweats_info():
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_data_rows = get_sweats_info()
 my_cnx.close()
-streamlit.dataframe(my_data_rows)
+
+color_list = streamlit.dataframe(my_data_rows).values.tolist()
